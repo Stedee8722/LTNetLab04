@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             LoginInfo = new GroupBox();
+            linklbkRegister = new LinkLabel();
+            label1 = new Label();
+            btnCancel = new Button();
+            btnLogin = new Button();
             txtPassword = new TextBox();
             txtUsername = new TextBox();
             pictureBox1 = new PictureBox();
-            btnLogin = new Button();
-            btnCancel = new Button();
-            label1 = new Label();
-            linklbkRegister = new LinkLabel();
             LoginInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -52,99 +52,107 @@
             LoginInfo.Controls.Add(txtUsername);
             LoginInfo.Controls.Add(pictureBox1);
             LoginInfo.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            LoginInfo.Location = new Point(12, 3);
+            LoginInfo.Location = new Point(8, 2);
+            LoginInfo.Margin = new Padding(2);
             LoginInfo.Name = "LoginInfo";
-            LoginInfo.Size = new Size(774, 534);
+            LoginInfo.Padding = new Padding(2);
+            LoginInfo.Size = new Size(542, 320);
             LoginInfo.TabIndex = 0;
             LoginInfo.TabStop = false;
             LoginInfo.Text = "Login Info";
-            LoginInfo.Enter += groupBox1_Enter;
-            // 
-            // txtPassword
-            // 
-            txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPassword.Location = new Point(247, 362);
-            txtPassword.Name = "txtPassword";
-            txtPassword.PlaceholderText = "Password";
-            txtPassword.Size = new Size(280, 39);
-            txtPassword.TabIndex = 2;
-            // 
-            // txtUsername
-            // 
-            txtUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtUsername.Location = new Point(247, 317);
-            txtUsername.Name = "txtUsername";
-            txtUsername.PlaceholderText = "Username";
-            txtUsername.Size = new Size(280, 39);
-            txtUsername.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(247, 36);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(280, 267);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
-            // 
-            // btnLogin
-            // 
-            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnLogin.Image = (Image)resources.GetObject("btnLogin.Image");
-            btnLogin.ImageAlign = ContentAlignment.MiddleLeft;
-            btnLogin.Location = new Point(247, 407);
-            btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(133, 55);
-            btnLogin.TabIndex = 3;
-            btnLogin.Text = "   &Login";
-            btnLogin.UseVisualStyleBackColor = true;
-            btnLogin.Click += button1_Click;
-            // 
-            // btnCancel
-            // 
-            btnCancel.Image = (Image)resources.GetObject("btnCancel.Image");
-            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCancel.Location = new Point(394, 407);
-            btnCancel.Name = "btnCancel";
-            btnCancel.Size = new Size(133, 55);
-            btnCancel.TabIndex = 4;
-            btnCancel.Text = "   &Cancel";
-            btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F);
-            label1.Location = new Point(211, 479);
-            label1.Name = "label1";
-            label1.Size = new Size(300, 25);
-            label1.TabIndex = 5;
-            label1.Text = "Don't have an account? Register one";
-            label1.Click += label1_Click_1;
             // 
             // linklbkRegister
             // 
             linklbkRegister.AutoSize = true;
             linklbkRegister.BackColor = Color.Transparent;
             linklbkRegister.Font = new Font("Segoe UI", 9F);
-            linklbkRegister.Location = new Point(505, 479);
+            linklbkRegister.Location = new Point(355, 294);
+            linklbkRegister.Margin = new Padding(2, 0, 2, 0);
             linklbkRegister.Name = "linklbkRegister";
-            linklbkRegister.Size = new Size(46, 25);
+            linklbkRegister.Size = new Size(30, 15);
             linklbkRegister.TabIndex = 6;
             linklbkRegister.TabStop = true;
             linklbkRegister.Text = "here";
             linklbkRegister.LinkClicked += linkLabel1_LinkClicked;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F);
+            label1.Location = new Point(160, 294);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(199, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Don't have an account? Register one";
+            // 
+            // btnCancel
+            // 
+            btnCancel.Image = (Image)resources.GetObject("btnCancel.Image");
+            btnCancel.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancel.Location = new Point(276, 259);
+            btnCancel.Margin = new Padding(2);
+            btnCancel.Name = "btnCancel";
+            btnCancel.Padding = new Padding(6, 0, 0, 0);
+            btnCancel.Size = new Size(93, 33);
+            btnCancel.TabIndex = 4;
+            btnCancel.Text = "   &Cancel";
+            btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnLogin
+            // 
+            btnLogin.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLogin.Image = (Image)resources.GetObject("btnLogin.Image");
+            btnLogin.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLogin.Location = new Point(173, 259);
+            btnLogin.Margin = new Padding(2);
+            btnLogin.Name = "btnLogin";
+            btnLogin.Padding = new Padding(6, 0, 0, 0);
+            btnLogin.Size = new Size(93, 33);
+            btnLogin.TabIndex = 3;
+            btnLogin.Text = "   &Login";
+            btnLogin.UseVisualStyleBackColor = true;
+            // 
+            // txtPassword
+            // 
+            txtPassword.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPassword.Location = new Point(173, 223);
+            txtPassword.Margin = new Padding(2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "Password";
+            txtPassword.Size = new Size(196, 29);
+            txtPassword.TabIndex = 2;
+            // 
+            // txtUsername
+            // 
+            txtUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtUsername.Location = new Point(173, 190);
+            txtUsername.Margin = new Padding(2);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PlaceholderText = "Username";
+            txtUsername.Size = new Size(196, 29);
+            txtUsername.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(173, 22);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(196, 160);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveBorder;
-            ClientSize = new Size(798, 549);
+            ClientSize = new Size(559, 329);
             Controls.Add(LoginInfo);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(2);
             Name = "LoginForm";
             Text = "LoginForm";
             LoginInfo.ResumeLayout(false);

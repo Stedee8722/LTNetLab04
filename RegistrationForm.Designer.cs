@@ -50,13 +50,18 @@
             txtUsername = new TextBox();
             txtPassword = new TextBox();
             txtConfirmPassword = new TextBox();
-            pictureBox1 = new PictureBox();
+            picAvatar = new PictureBox();
             btnRemove = new Button();
             btnCreate = new Button();
             btnClear = new Button();
             btnClose = new Button();
-            button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            btnBrowse = new Button();
+            openFileDlg = new OpenFileDialog();
+            btnPasswordVisibility = new PictureBox();
+            btnConfirmPasswordVisibility = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)picAvatar).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnPasswordVisibility).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btnConfirmPasswordVisibility).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -188,6 +193,7 @@
             txtCustomerID.PlaceholderText = "Customer ID";
             txtCustomerID.Size = new Size(273, 29);
             txtCustomerID.TabIndex = 10;
+            txtCustomerID.KeyDown += input_KeyDown;
             // 
             // txtName
             // 
@@ -198,6 +204,7 @@
             txtName.PlaceholderText = "Name";
             txtName.Size = new Size(273, 29);
             txtName.TabIndex = 11;
+            txtName.KeyDown += input_KeyDown;
             // 
             // dtBirthday
             // 
@@ -222,6 +229,7 @@
             rdMale.TabStop = true;
             rdMale.Text = "Male";
             rdMale.UseVisualStyleBackColor = true;
+            rdMale.KeyDown += rdMale_KeyDown;
             // 
             // rdFemale
             // 
@@ -235,6 +243,7 @@
             rdFemale.TabStop = true;
             rdFemale.Text = "Female";
             rdFemale.UseVisualStyleBackColor = true;
+            rdFemale.KeyDown += rdFemale_KeyDown;
             // 
             // txtPassportNo
             // 
@@ -245,6 +254,7 @@
             txtPassportNo.PlaceholderText = "Passport Number";
             txtPassportNo.Size = new Size(273, 29);
             txtPassportNo.TabIndex = 15;
+            txtPassportNo.KeyDown += input_KeyDown;
             // 
             // txtNationality
             // 
@@ -255,6 +265,7 @@
             txtNationality.PlaceholderText = "Nationality";
             txtNationality.Size = new Size(273, 29);
             txtNationality.TabIndex = 16;
+            txtNationality.KeyDown += input_KeyDown;
             // 
             // txtEmail
             // 
@@ -265,6 +276,7 @@
             txtEmail.PlaceholderText = "Email";
             txtEmail.Size = new Size(273, 29);
             txtEmail.TabIndex = 17;
+            txtEmail.KeyDown += input_KeyDown;
             // 
             // txtUsername
             // 
@@ -275,6 +287,7 @@
             txtUsername.PlaceholderText = "Username";
             txtUsername.Size = new Size(273, 29);
             txtUsername.TabIndex = 18;
+            txtUsername.KeyDown += input_KeyDown;
             // 
             // txtPassword
             // 
@@ -283,9 +296,10 @@
             txtPassword.Margin = new Padding(2);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Password";
-            txtPassword.Size = new Size(273, 29);
+            txtPassword.Size = new Size(238, 29);
             txtPassword.TabIndex = 19;
             txtPassword.UseSystemPasswordChar = true;
+            txtPassword.KeyDown += input_KeyDown;
             // 
             // txtConfirmPassword
             // 
@@ -294,20 +308,21 @@
             txtConfirmPassword.Margin = new Padding(2);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PlaceholderText = "Confirm Password";
-            txtConfirmPassword.Size = new Size(273, 29);
+            txtConfirmPassword.Size = new Size(238, 29);
             txtConfirmPassword.TabIndex = 20;
             txtConfirmPassword.UseSystemPasswordChar = true;
+            txtConfirmPassword.KeyDown += input_KeyDown;
             // 
-            // pictureBox1
+            // picAvatar
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(25, 29);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(227, 230);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 21;
-            pictureBox1.TabStop = false;
+            picAvatar.Image = (Image)resources.GetObject("picAvatar.Image");
+            picAvatar.Location = new Point(25, 56);
+            picAvatar.Margin = new Padding(2);
+            picAvatar.Name = "picAvatar";
+            picAvatar.Size = new Size(227, 203);
+            picAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            picAvatar.TabIndex = 21;
+            picAvatar.TabStop = false;
             // 
             // btnRemove
             // 
@@ -322,6 +337,7 @@
             btnRemove.TabIndex = 23;
             btnRemove.Text = "   &Remove";
             btnRemove.UseVisualStyleBackColor = true;
+            btnRemove.Click += btnRemove_Click;
             // 
             // btnCreate
             // 
@@ -336,6 +352,7 @@
             btnCreate.TabIndex = 22;
             btnCreate.Text = "    &Create";
             btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
             // btnClear
             // 
@@ -350,6 +367,7 @@
             btnClear.TabIndex = 24;
             btnClear.Text = "    &Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnClose
             // 
@@ -364,32 +382,66 @@
             btnClose.TabIndex = 25;
             btnClose.Text = "    &Close";
             btnClose.UseVisualStyleBackColor = true;
+            btnClose.Click += btnClose_Click;
             // 
-            // button1
+            // btnBrowse
             // 
-            button1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(25, 283);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Padding = new Padding(6, 0, 0, 0);
-            button1.Size = new Size(100, 43);
-            button1.TabIndex = 26;
-            button1.Text = "    &Browse";
-            button1.UseVisualStyleBackColor = true;
+            btnBrowse.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBrowse.Image = (Image)resources.GetObject("btnBrowse.Image");
+            btnBrowse.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBrowse.Location = new Point(25, 283);
+            btnBrowse.Margin = new Padding(2);
+            btnBrowse.Name = "btnBrowse";
+            btnBrowse.Padding = new Padding(6, 0, 0, 0);
+            btnBrowse.Size = new Size(100, 43);
+            btnBrowse.TabIndex = 26;
+            btnBrowse.Text = "    &Browse";
+            btnBrowse.UseVisualStyleBackColor = true;
+            btnBrowse.Click += btnBrowse_Click;
+            // 
+            // openFileDlg
+            // 
+            openFileDlg.FileName = "openFileDialog";
+            // 
+            // btnPasswordVisibility
+            // 
+            btnPasswordVisibility.BackColor = Color.Transparent;
+            btnPasswordVisibility.Cursor = Cursors.Hand;
+            btnPasswordVisibility.Image = Properties.Resources.show;
+            btnPasswordVisibility.Location = new Point(659, 280);
+            btnPasswordVisibility.Name = "btnPasswordVisibility";
+            btnPasswordVisibility.Size = new Size(29, 29);
+            btnPasswordVisibility.SizeMode = PictureBoxSizeMode.Zoom;
+            btnPasswordVisibility.TabIndex = 27;
+            btnPasswordVisibility.TabStop = false;
+            btnPasswordVisibility.Click += btnPasswordVisibility_Click;
+            // 
+            // btnConfirmPasswordVisibility
+            // 
+            btnConfirmPasswordVisibility.BackColor = Color.Transparent;
+            btnConfirmPasswordVisibility.Cursor = Cursors.Hand;
+            btnConfirmPasswordVisibility.Image = Properties.Resources.show;
+            btnConfirmPasswordVisibility.Location = new Point(659, 315);
+            btnConfirmPasswordVisibility.Name = "btnConfirmPasswordVisibility";
+            btnConfirmPasswordVisibility.Size = new Size(29, 29);
+            btnConfirmPasswordVisibility.SizeMode = PictureBoxSizeMode.Zoom;
+            btnConfirmPasswordVisibility.TabIndex = 28;
+            btnConfirmPasswordVisibility.TabStop = false;
+            btnConfirmPasswordVisibility.Click += btnConfirmPasswordVisibility_Click;
             // 
             // RegistrationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(696, 404);
-            Controls.Add(button1);
+            Controls.Add(btnConfirmPasswordVisibility);
+            Controls.Add(btnPasswordVisibility);
+            Controls.Add(btnBrowse);
             Controls.Add(btnClose);
             Controls.Add(btnClear);
             Controls.Add(btnRemove);
             Controls.Add(btnCreate);
-            Controls.Add(pictureBox1);
+            Controls.Add(picAvatar);
             Controls.Add(txtConfirmPassword);
             Controls.Add(txtPassword);
             Controls.Add(txtUsername);
@@ -413,8 +465,10 @@
             Controls.Add(label1);
             Margin = new Padding(2);
             Name = "RegistrationForm";
-            Text = "RegistrationForm";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "Register Account";
+            ((System.ComponentModel.ISupportInitialize)picAvatar).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnPasswordVisibility).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btnConfirmPasswordVisibility).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -442,11 +496,14 @@
         private TextBox txtUsername;
         private TextBox txtPassword;
         private TextBox txtConfirmPassword;
-        private PictureBox pictureBox1;
+        private PictureBox picAvatar;
         private Button btnRemove;
         private Button btnCreate;
         private Button btnClear;
         private Button btnClose;
-        private Button button1;
+        private Button btnBrowse;
+        private OpenFileDialog openFileDlg;
+        private PictureBox btnPasswordVisibility;
+        private PictureBox btnConfirmPasswordVisibility;
     }
 }

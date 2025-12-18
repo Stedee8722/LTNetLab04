@@ -30,27 +30,33 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             LoginInfo = new GroupBox();
+            btnPasswordVisibility = new PictureBox();
             linklbkRegister = new LinkLabel();
-            label1 = new Label();
             btnCancel = new Button();
             btnLogin = new Button();
             txtPassword = new TextBox();
             txtUsername = new TextBox();
             pictureBox1 = new PictureBox();
+            label1 = new Label();
+            pictureBox3 = new PictureBox();
             LoginInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)btnPasswordVisibility).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // LoginInfo
             // 
             LoginInfo.BackColor = Color.Transparent;
+            LoginInfo.Controls.Add(btnPasswordVisibility);
             LoginInfo.Controls.Add(linklbkRegister);
-            LoginInfo.Controls.Add(label1);
             LoginInfo.Controls.Add(btnCancel);
             LoginInfo.Controls.Add(btnLogin);
             LoginInfo.Controls.Add(txtPassword);
             LoginInfo.Controls.Add(txtUsername);
             LoginInfo.Controls.Add(pictureBox1);
+            LoginInfo.Controls.Add(label1);
+            LoginInfo.Controls.Add(pictureBox3);
             LoginInfo.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LoginInfo.Location = new Point(8, 2);
             LoginInfo.Margin = new Padding(2);
@@ -60,6 +66,20 @@
             LoginInfo.TabIndex = 0;
             LoginInfo.TabStop = false;
             LoginInfo.Text = "Login Info";
+            // 
+            // btnPasswordVisibility
+            // 
+            btnPasswordVisibility.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnPasswordVisibility.BackgroundImageLayout = ImageLayout.None;
+            btnPasswordVisibility.Cursor = Cursors.Hand;
+            btnPasswordVisibility.Image = Properties.Resources.show;
+            btnPasswordVisibility.Location = new Point(374, 223);
+            btnPasswordVisibility.Name = "btnPasswordVisibility";
+            btnPasswordVisibility.Size = new Size(29, 29);
+            btnPasswordVisibility.SizeMode = PictureBoxSizeMode.Zoom;
+            btnPasswordVisibility.TabIndex = 28;
+            btnPasswordVisibility.TabStop = false;
+            btnPasswordVisibility.Click += btnPasswordVisibility_Click;
             // 
             // linklbkRegister
             // 
@@ -75,17 +95,6 @@
             linklbkRegister.Text = "here";
             linklbkRegister.LinkClicked += linkLabel1_LinkClicked;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F);
-            label1.Location = new Point(160, 294);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(199, 15);
-            label1.TabIndex = 5;
-            label1.Text = "Don't have an account? Register one";
-            // 
             // btnCancel
             // 
             btnCancel.Image = (Image)resources.GetObject("btnCancel.Image");
@@ -98,6 +107,7 @@
             btnCancel.TabIndex = 4;
             btnCancel.Text = "   &Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // btnLogin
             // 
@@ -112,6 +122,7 @@
             btnLogin.TabIndex = 3;
             btnLogin.Text = "   &Login";
             btnLogin.UseVisualStyleBackColor = true;
+            btnLogin.Click += btnLogin_Click;
             // 
             // txtPassword
             // 
@@ -122,6 +133,8 @@
             txtPassword.PlaceholderText = "Password";
             txtPassword.Size = new Size(196, 29);
             txtPassword.TabIndex = 2;
+            txtPassword.UseSystemPasswordChar = true;
+            txtPassword.KeyDown += input_KeyDown;
             // 
             // txtUsername
             // 
@@ -132,6 +145,7 @@
             txtUsername.PlaceholderText = "Username";
             txtUsername.Size = new Size(196, 29);
             txtUsername.TabIndex = 1;
+            txtUsername.KeyDown += input_KeyDown;
             // 
             // pictureBox1
             // 
@@ -143,6 +157,28 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F);
+            label1.Location = new Point(160, 294);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(199, 15);
+            label1.TabIndex = 5;
+            label1.Text = "Don't have an account? Register one";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImageLayout = ImageLayout.None;
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(0, 138);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(542, 197);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 30;
+            pictureBox3.TabStop = false;
             // 
             // LoginForm
             // 
@@ -157,7 +193,9 @@
             Text = "LoginForm";
             LoginInfo.ResumeLayout(false);
             LoginInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)btnPasswordVisibility).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
         }
 
@@ -171,5 +209,7 @@
         private Button btnCancel;
         private LinkLabel linklbkRegister;
         private Label label1;
+        private PictureBox btnPasswordVisibility;
+        private PictureBox pictureBox3;
     }
 }
